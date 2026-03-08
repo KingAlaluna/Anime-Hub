@@ -1,9 +1,10 @@
 function InputSearch() {
   const g = s();
+  const nav = useNavigate();
   
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      g.setIsDisplay('AnimeSearch');
+      nav('/AnimeSearch');
       g.setIsPaginDocument(1);
       g.setIsAnimeUrl(`https://api.jikan.moe/v4/anime?q=${encodeURIComponent(event.target.value)}`);
       g.setIsInputSearshAc(false);

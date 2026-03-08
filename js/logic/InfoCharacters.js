@@ -10,8 +10,6 @@ function InfoCharacters() {
         backgroundImage: 'var(--gradient-1)',
       },
     },
-    e(Button5, {className: 'fa-arrow-left', onClick: () => g.setIsDisplay('AnimeViewing')}),
-    
     e(CharactersGrid),
     e(Text1, {text: 'Актори/актриси озвучки (натисніть на актора/актрису для більш детальноі інформації):'}),
     e(Actors, {characters: c}),
@@ -158,6 +156,8 @@ function SynopsisText(props) {
 //актори
 function Actors(props) {
   const g = s();
+  const nav = useNavigate();
+  
   return e(
     'div',
     {
@@ -184,7 +184,7 @@ function Actors(props) {
         
         onClick: () => {
           g.setIsCurrActors(v);
-          g.setIsDisplay('InfoActors');
+          nav('InfoActors');
         },
       }),
     ),

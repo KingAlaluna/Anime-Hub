@@ -1,6 +1,5 @@
 function MainLogic() {
   //хуки
-  const [isDisplay, setIsDisplay] = useState('Main');
   const [isDarkTheme, setIsDarkTheme] = useState(() => window.matchMedia?.('(prefers-color-scheme: dark)').matches);
   const [isActBtn, setIsActBtn] = useState('fa-home');
   
@@ -31,37 +30,9 @@ function MainLogic() {
   }, [isDarkTheme]);
   
   
-  //обробник системноі кнопки назад
-  useEffect(() => {
-    window.onpopstate = function(event) {
-      setIsDisplay('Main');
-    };
-  }, []);
-  
-  
-  
-  
-  //дисплеи
-  let display = {
-    Main,
-    Filter,
-    Favourite,
-    MyProjects,
-    AboutMe,
-    AnimeViewing,
-    InfoCharacters,
-    InfoActors,
-    AnimeSearch,
-  };
-  
-  const Displays = display[isDisplay];
-  
   
   //глобальная видимость
   let allState = {
-    Displays,
-    isDisplay,
-    setIsDisplay,
     isDarkTheme,
     setIsDarkTheme,
     isActBtn,
@@ -101,10 +72,31 @@ function MainLogic() {
     isAllPaginDocument,
     setIsAllPaginDocument,
   };
-
-  return e(GlobalContext.Provider, { value: allState }, e(TopBanner), e(Weblite), e(BottomBanner));
+  
+  
+  return e(
+    HashRouter, null,
+    e(
+      GlobalContext.Provider, { value: allState },
+      e(TopBanner),
+      e(Routes, null,
+        e(Route, {element: e(Root)},
+          e(Route, {path: '/', element: e(Main)}),
+          e(Route, {path: '/Filter', element: e(Filter)}),
+          e(Route, {path: '/Favourite', element: e(Favourite)}),
+          e(Route, {path: '/MyProjects', element: e(MyProjects)}),
+          e(Route, {path: '/AboutMe', element: e(AboutMe)}),
+          e(Route, {path: '/AnimeViewing', element: e(AnimeViewing)}),
+          e(Route, {path: '/InfoCharacters', element: e(InfoCharacters)}),
+          e(Route, {path: '/InfoActors', element: e(InfoActors)}),
+          e(Route, {path: '/AnimeSearch', element: e(AnimeSearch)}),
+        ),
+      ),
+      e(BottomBanner),
+    ),
+  );
 }
 
 
-const weblites = ReactDOM.createRoot(document.getElementById('weblite'));
-weblites.render(e(MainLogic));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(e(MainLogic));

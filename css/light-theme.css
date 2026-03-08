@@ -1,0 +1,109 @@
+/*світла тема*/
+:root {
+  /*кольори*/
+  --color-000: #000;
+  --color-f00: #f00;
+  --color-fb0: #fb0;
+  --color-fff: #fff;
+  --color-999: #999;
+  --color-333: #333;
+  --color-1: hsla(260, 50%, 70%, 0.7);
+  
+  
+  /*
+  градієнти
+  */
+  /*сторінки*/
+  --gradient-1: 
+    radial-gradient(at 50% 50%, hsla(0, 100%, 95%, 1) 0%, transparent 50%),
+    linear-gradient(var(--color-fff), var(--color-fff));
+  
+  
+  
+  /*блоки з аніме топ та іншими*/
+  --gradient-2: 
+    radial-gradient(at 100% 0%, hsla(0, 100%, 97%, 1) 0%, transparent 30%),
+    radial-gradient(at 100% 100%, hsla(320, 100%, 97%, 1) 0%, transparent 30%),
+    radial-gradient(at 0% 100%, hsla(300, 100%, 97%, 1) 0%, transparent 30%),
+    radial-gradient(at 0% 0%, hsla(340, 100%, 97%, 1) 0%, transparent 30%),
+    linear-gradient(var(--color-fff), var(--color-fff));
+    
+  
+  
+  /*всі права захищені*/
+  --gradient-3: 
+    radial-gradient(at 50% 50%, hsla(0, 100%, 90%, 1) 0%, transparent 80%),
+    linear-gradient(var(--color-fff), var(--color-fff));
+  
+  
+  /*прозоре скло нижнього банера*/
+  --gradient-4: 
+    radial-gradient(at 50% 50%, hsla(0, 100%, 95%, 0.3) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(240, 248, 255, 0.3), rgba(224, 255, 255, 0.3), rgba(173, 216, 230, 0.3));
+  
+  
+  /*кнопки сторінок*/
+  --gradient-5: linear-gradient(155deg, #B2D4D9 0%, #8BD7E3 90%);
+  
+  /*фон та текст логотипа*/
+  --gradient-6: linear-gradient(45deg, hsla(0, 100%, 20%, 1), hsla(280, 100%, 20%, 1), hsla(240, 100%, 20%, 1));
+
+  /*кнопки назад / підтвердити*/
+  --gradient-7: linear-gradient(155deg, #FF4D4D 0%, #D63031 90%);
+  
+  /*кнопки фільтів аніме*/
+  --gradient-8: linear-gradient(155deg, #FF0000 0%, #FF6B6B 90%);
+  
+  /*активні кнопки сторінок*/
+  --gradient-9: linear-gradient(155deg, hsla(0, 100%, 100%, 1) 0%, hsla(0, 100%, 70%, 1) 100%);
+
+  
+  /*фон кнопки світла / темна тема*/
+  --gradient-10: linear-gradient(155deg, #FFEBEB 0%, #FAD0C4 90%);
+  /*зображення кнопки світла / темна тема*/
+  --gradient-11: linear-gradient(135deg, #FF4B2B 0%, #FF416C 90%);
+
+  
+  
+  /*фон кнопки додати в улюбене
+  неактивна*/
+  --gradient-12: linear-gradient(155deg, #F5F5F5 0%, #DCDDE1 90%);
+  /*активна*/
+  --gradient-13: linear-gradient(155deg, #FFEDED 0%, #FFCFCF 90%);
+  /*сердце кнопки додати в улюбене
+  неактивне*/
+  --gradient-14: linear-gradient(135deg, #A5B1C2 0%, #778CA3 90%);
+  /*активне*/
+  --gradient-15: linear-gradient(135deg, #EB3B5A 0%, #B71540 90%);
+  
+  
+  /*головний банер*/
+  --gradient-16:
+    radial-gradient(at 50% 0%, hsla(220, 70%, 80%, 1) 0, transparent 70%),
+    radial-gradient(at 50% 100%, hsla(240, 50%, 70%, 1) 0, transparent 70%),
+    linear-gradient(180deg, hsla(200, 50%, 80%, 1) 0, hsla(260, 100%, 70%, 1) 100%);
+  
+  
+  /*обводка ОДНОГО із значень top/bottom/left/right*/
+  --gradient-17: linear-gradient(90deg, hsla(0, 100%, 70%, 1) 0, hsla(0, 100%, 100%, 1) 50%, hsla(0, 100%, 60%, 1) 100%);
+  
+  
+  /*обводка <<повного>> border*/
+  --gradient-18:
+    radial-gradient(at 0% 0%, hsla(0, 100%, 70%, 1) 0, transparent 30%),
+    radial-gradient(at 50% 0%, hsla(0, 100%, 100%, 1) 0, transparent 30%),
+    radial-gradient(at 100% 0%, hsla(0, 100%, 60%, 1) 0, transparent 30%),
+    radial-gradient(at 100% 50%, hsla(0, 100%, 100%, 1) 0, transparent 30%),
+    radial-gradient(at 100% 100%, hsla(0, 100%, 70%, 1) 0, transparent 30%),
+    radial-gradient(at 50% 100%, hsla(0, 100%, 100%, 1) 0, transparent 30%),
+    radial-gradient(at 0% 100%, hsla(0, 100%, 60%, 1) 0, transparent 30%),
+    radial-gradient(at 0% 50%, hsla(0, 100%, 100%, 1) 0, transparent 30%);
+  
+  
+  /*назва аніме*/
+  --gradient-19: linear-gradient(180deg, hsla(240, 100%, 20%, 1), hsla(280, 100%, 20%, 1));
+
+}
+
+
+

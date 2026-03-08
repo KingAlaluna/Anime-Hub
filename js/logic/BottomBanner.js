@@ -1,5 +1,7 @@
 function BottomBanner() {
   const g = s();
+  const nav = useNavigate();
+  
   return e(
     'div',
     {
@@ -15,17 +17,17 @@ function BottomBanner() {
     },
     e(Button1, {className: 'fa-home', onClick: () => {
       g.setIsPaginDocument(1);
-      g.setIsDisplay('Main');
+      nav('/');
     }}),
     e(Button1, {className: 'fa-sliders-h', noNewFav: true, onClick: () => {
       g.setIsPaginDocument(1);
-      g.setIsDisplay('Filter');
+      nav('/Filter');
     }}),
     e(Button8, {className: 'fa-heart', onClick: () => {
       g.setIsPaginDocument(1);
-      g.setIsDisplay('Favourite');
+      nav('/Favourite');
     }}),
-    e(Button1, {className: 'fa-laptop-code', onClick: () => g.setIsDisplay('MyProjects')}),
-    e(Button1, {className: 'fa-user-tie', onClick: () => g.setIsDisplay('AboutMe')}),
+    e(Button1, {className: 'fa-laptop-code', onClick: () => nav('/MyProjects')}),
+    e(Button1, {className: 'fa-user-tie', onClick: () => nav('/AboutMe')}),
   );
 }

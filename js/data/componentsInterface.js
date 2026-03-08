@@ -76,38 +76,6 @@ function Button4(props) {
   );
 }
 
-function Button5(props) {
-  const g = s();
-  return e(
-    'button',
-    {
-      style: {
-        ...button1,
-        color: props.color || 'var(--color-000)',
-        margin: '0',
-        borderRadius: '50%',
-        position: 'fixed',
-        top: props.top || '50%',
-        left: props.left || '2.5%',
-        width: 'clamp(50px, 7vh, 80px)',
-        height: 'clamp(50px, 7vh, 80px)',
-        zIndex: '99',
-        background: props.bg || 'var(--gradient-7)',
-      },
-      onClick: () => {
-        props.onClick?.() || null;
-        g.setIsAnimeUrl('https://api.jikan.moe/v4/anime');
-        g.setIsActBtn('fa-home');
-        arrayGenres.length = 0;
-        arrayTypes.length = 0;
-        arrayYears.length = 0;
-        arrayStudios.length = 0;
-      },
-      className: 'fa-solid ' + props.className || null,
-    },
-    props.svg || null,
-  );
-}
 
 function Button6(props) {
   const g = s();
@@ -226,7 +194,7 @@ function Text4(props) {
         width: 'max-content',
         height: 'max-content',
         maxWidth: '95%',
-        wordBreak: 'break-word',
+        wordBreak: 'break-all',
         borderRadius: '10px',
         ...border6,
       },
@@ -241,7 +209,7 @@ function Text5(props) {
     {
       style: {
         margin: '1vmin 5%',
-        wordBreak: 'break-word',
+        wordBreak: 'break-all',
         display: 'block',
         height: 'max-content',
         width: '90%',
@@ -284,7 +252,7 @@ function Text7(props) {
       style: {
         margin: '1vmin 5%',
         padding: '1vmin',
-        wordBreak: 'break-word',
+        wordBreak: 'break-all',
         display: 'block',
         height: 'max-content',
         width: '90%',
@@ -309,7 +277,7 @@ function Url1(props) {
         width: 'max-content',
         height: 'max-content',
         maxWidth: '95%',
-        wordBreak: 'break-word',
+        wordBreak: 'break-all',
         borderRadius: '10px',
         ...border6,
         textDecoration: 'none',
@@ -333,7 +301,7 @@ function Url2(props) {
       style: {
         margin: '1vmin 5%',
         padding: '1vmin',
-        wordBreak: 'break-word',
+        wordBreak: 'break-all',
         display: 'block',
         height: 'max-content',
         width: '90%',
@@ -535,6 +503,7 @@ function Panel2(props) {
 function Panel3(props) {
   const g = s();
   const [animeList, setAnimeList] = useState([]);
+  const nav = useNavigate();
   
   useEffect(() => {
     fetch(`https://api.jikan.moe/v4/${props.animeUrl}`)
@@ -582,11 +551,8 @@ function Panel3(props) {
         aniFavourite: alreadyFavorite, 
         
         onClick: () => {
-          g.setIsDisplay('AnimeViewing');
+          nav('/AnimeViewing');
           g.setIsAnimeData(anime);
-          if (window.history.state?.page !== 'AnimeViewing') {
-            window.history.pushState({ page: 'AnimeViewing' }, '');
-          }
         },
         
         onClickFav: () => {
@@ -630,6 +596,7 @@ function PanelRecomeng1(props) {
 //панель аніме рекомендую
 function PanelRecomeng2(props) {
   const g = s();
+  const nav = useNavigate();
   const [animeLists, setAnimeLists] = useState([]);
   
   const arrAnime = !props.animeFavourite ? animeLists : animeLists.slice((g.isPaginDocument - 1) * 25, g.isPaginDocument * 25);
@@ -696,11 +663,8 @@ function PanelRecomeng2(props) {
         aniFavourite: alreadyFavorite, 
         
         onClick: () => {
-          g.setIsDisplay('AnimeViewing');
+          nav('/AnimeViewing');
           g.setIsAnimeData(anime);
-          if (window.history.state?.page !== 'AnimeViewing') {
-            window.history.pushState({ page: 'AnimeViewing' }, '');
-          }
         },
         
         onClickFav: () => {

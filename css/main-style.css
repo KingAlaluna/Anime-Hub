@@ -1,0 +1,135 @@
+/*загальні стилі*/
+* {
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  color: var(--color-000);
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+html, body, div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: center;
+  position: relative;
+}
+
+button {
+  border-radius: 10px;
+  border: none;
+}
+
+iframe {
+  border: none;
+}
+
+
+
+/*стилі для Markdown*/
+.markdown h1 {margin: 5vmin auto;}
+.markdown h2 {margin: 4vmin auto;}
+.markdown h3 {margin: 3vmin auto;}
+.markdown ul {margin: 5vmin auto;}
+.markdown li {margin: 5vmin auto;}
+
+
+.fa-solid {
+  font-size: clamp(30px, 5vh, 60px);
+}
+.fa-solid-1 {
+  font-size: 90%;
+}
+
+
+.button1 {
+  display: none !important;
+}
+
+
+.anime-1:hover {
+  animation: anime-active 0.7s ease;
+}
+
+@keyframes anime-active {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-1vmax) scale(0.95);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.fa-solid:active, .fa-solid:hover, .fa-solid:focus {
+  animation: button-active-1 0.7s ease;
+}
+
+@keyframes button-active-1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.70);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+/*стилі для альбомного режима*/
+@media (orientation: landscape) {
+  .panel-recomeng-1 {
+    grid-template-columns: repeat(5, 1fr) !important;
+  }
+  
+  .panel-2 {
+    display: none !important;
+  }
+  
+  .fa-solid-1 {
+    font-size: 90%;
+  }
+  
+  .button1 {
+    display: block !important;
+  }
+  
+  .filter-1 {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
+  
+  .filter-2 {
+    grid-template-columns: repeat(8, 1fr) !important;
+    padding: 0 0.375vw 0 0.375vw !important;
+  }
+  
+  .anime-1 {
+    margin: 1vmax !important;
+    width: 18vmax !important;
+  }
+  
+  .anime-viewing-grid-1 {
+    grid-template-columns: repeat(1, 1fr 1.5fr) !important;
+  }
+  
+  .characters-grid-1 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+

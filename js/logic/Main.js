@@ -1,4 +1,13 @@
 function Main() {
+  const g = s();
+  
+  g.setIsAnimeUrl('https://api.jikan.moe/v4/anime');
+  g.setIsActBtn('fa-home');
+  arrayGenres.length = 0;
+  arrayTypes.length = 0;
+  arrayYears.length = 0;
+  arrayStudios.length = 0;
+  
   return e(
     'div',
     {

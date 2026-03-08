@@ -1,4 +1,4 @@
-function Weblite() {
+function Root() {
   const g = s();
   return e(
     'div',
@@ -8,8 +8,8 @@ function Weblite() {
         flex: '1',
         overflow: 'auto',
       },
-      className: 'weblite-1',
     },
-    e(g.Displays),
+    e(Outlet),
   );
 }
+

@@ -9,11 +9,6 @@ function AnimeViewing() {
         backgroundImage: 'var(--gradient-1)',
       },
     },
-    e(Button5, {className: 'fa-arrow-left', onClick: () => {
-      g.setIsDisplay('Main');
-      window.history.back();
-    }}),
-    
     e(AVGrid, {}),
     e(AVSynopsis),
     e(Text1, {text: 'Трейлери:'}),
@@ -178,6 +173,7 @@ function AVTrailer() {
 //загальний контейнер
 function Characters() {
   const g = s();
+  const nav = useNavigate();
   const [isCharacters, setIsCharacters] = useState([]);
   
   useEffect(() => {
@@ -218,7 +214,7 @@ function Characters() {
         
         onClick: () => {
           g.setIsCurrCharacter(c);
-          g.setIsDisplay('InfoCharacters');
+          nav('InfoCharacters');
         },
       })
     ) : null,

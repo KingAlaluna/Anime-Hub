@@ -10,8 +10,6 @@ function InfoActors() {
         backgroundImage: 'var(--gradient-1)',
       },
     },
-    e(Button5, {className: 'fa-arrow-left', onClick: () => g.setIsDisplay('InfoCharacters')}),
-    
     e(ActorsGrid),
     e(AllLawProtected1),
   );
