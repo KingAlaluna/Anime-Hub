@@ -1,8 +1,11 @@
 function Main() {
   const g = s();
   
-  g.setIsAnimeUrl('https://api.jikan.moe/v4/anime');
-  g.setIsActBtn('fa-home');
+  f(() => {
+    g.setIsAnimeUrl('https://api.jikan.moe/v4/anime');
+    g.setIsActBtn('fa-home');
+  }, []);
+  
   arrayGenres.length = 0;
   arrayTypes.length = 0;
   arrayYears.length = 0;
@@ -18,8 +21,8 @@ function Main() {
       },
     },
     e(Panel1, {text: 'Топ аніме:', animeUrl: 'top/anime'}),
-    e(Panel1, {text: 'Новинки:', animeUrl: 'seasons/now'}),
-    e(Panel1, {text: 'Анонси:', animeUrl: 'seasons/upcoming'}),
+    e(Panel1, {text: 'Новинки:', animeUrl: 'seasons/now', timer: 600}),
+    e(Panel1, {text: 'Анонси:', animeUrl: 'seasons/upcoming', timer: 1200}),
     e(PanelRecomeng1, {text: 'Рекомендуємо:'}),
     e(Pagination1),
     e(AllLawProtected1),

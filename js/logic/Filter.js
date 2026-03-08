@@ -34,7 +34,7 @@ function Filter() {
         }));
       },
     }),
-    e(PanelRecomeng1, {text: 'Результати фільтра:', url: g.isAnimeUrl, timeout: 0, }),
+    e(PanelRecomeng1, {text: 'Результати фільтра:', url: g.isAnimeUrl, timer: 0, }),
     e(Pagination1),
     e(AllLawProtected1),
   );

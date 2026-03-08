@@ -1,6 +1,20 @@
 function InfoActors() {
   const g = s();
-  const c = g.isCurrActors;
+  const {actorsId} = useParams();
+  
+  f(() => {
+    fetch(`https://api.jikan.moe/v4/people/${actorsId}/full`)
+      .then(response => response.json())
+      .then(data => {
+        g.setIsCurrActors(data.data); 
+      })
+      .catch(err => console.error("Помилка завантаження інформації про актора:", err));
+  }, []);
+  
+  if (!g.isCurrActors) {
+    return e(Text1, {text: 'Завантаження...'});
+  }
+  
   return e(
     'div',
     {
@@ -34,7 +48,7 @@ function ActorsGrid() {
       className: 'anime-viewing-grid-1',
     },
     e(ActorsImg2, {
-      img: c?.person?.images?.jpg?.image_url,
+      img: c?.images?.jpg?.image_url,
     }),
     
     e(InfoActorsPanel),
@@ -63,22 +77,6 @@ function ActorsImg2(props) {
 
 
 function InfoActorsPanel() {
-  const g = s();
-  const c = g.isCurrActors;
-  
-  const [isSynopsis, setIsSynopsis] = useState('');
-  
-  useEffect(() => {
-    fetch(`https://api.jikan.moe/v4/people/${c?.person?.mal_id}/full`)
-      .then(response => response.json())
-      .then(data => {
-        setIsSynopsis(data.data); 
-      })
-      .catch(err => console.error("Помилка API:", err));
-  }, []);
-  
-  //console.log(isSynopsis)
-  
   return e(
     'div',
     {
@@ -87,15 +85,9 @@ function InfoActorsPanel() {
         padding: '5vmin',
       },
     },
-    e(AInfoGrid, {
-      favorites: isSynopsis?.favorites ? `Кількість фаворитів: ${isSynopsis?.favorites}` : `Кількість фаворитів: невідомо`,
-      anime: isSynopsis?.anime ? `В аніме: ${isSynopsis?.anime?.map(e => e.anime.title).join(', ')}` : `В аніме: невідомо`,
-      manga: isSynopsis?.manga ? `В мангах: ${isSynopsis?.manga?.map(e => e.manga.title).join(', ')}` : `В мангах: невідомо`,
-    }),
+    e(AInfoGrid),
     e(Text1, {text: 'Біографія:'}),
-    e(ASynopsisText, {
-      about: isSynopsis?.about,
-    }),
+    e(ASynopsisText),
   );
 }
 
@@ -121,13 +113,12 @@ function AInfoGrid(props) {
         alignItems: 'start',
       },
     },
-    e(Text7, {text: c?.person?.name ? `Ім'я: ${c?.person?.name}` : `Ім'я: невідомо`, }),
-    e(Text7, {text: c?.language ? `Мова: ${c?.language}` : `Мова: невідомо`, }),
-    e(Url2, {text: c?.person?.url ? `Посилання: ${c?.person?.url}` : `Посилання: невідомо`, href: c?.person?.url ? c?.person?.url : '#', }),
+    e(Text7, {text: c?.name ? `Ім'я: ${c?.name}` : `Ім'я: невідомо`, }),
+    e(Url2, {text: c?.url ? `Посилання: ${c?.url}` : `Посилання: невідомо`, href: c?.url ? c?.url : '#', }),
     
-    e(Text7, {text: props.favorites || '', }),
-    e(Text7, {text: props.anime || '', }),
-    e(Text7, {text: props.manga || '', }),
+    e(Text7, {text: c?.favorites ? `Кількість фаворитів: ${c?.favorites}` : `Кількість фаворитів: невідомо`, }),
+    e(Text7, {text: c?.anime && c?.anime?.length > 0 ? `В аніме: ${c?.anime?.map(e => e?.anime?.title).join(', ')}` : `В аніме: невідомо`, }),
+    e(Text7, {text: c?.manga && c?.manga?.length > 0 ? `В мангах: ${c?.manga?.map(e => e?.manga?.title).join(', ')}` : `В мангах: невідомо`, }),
   );
 } 
 
@@ -135,6 +126,9 @@ function AInfoGrid(props) {
 
 //біографія персонажа
 function ASynopsisText(props) {
+  const g = s();
+  const c = g.isCurrActors;
+  
   return e(
     'div',
     {
@@ -144,7 +138,7 @@ function ASynopsisText(props) {
         whiteSpace: 'pre-line',
       },
     },
-    props.about || 'Нажаль, біографія цього актора невідома...',
+    c?.about || 'Нажаль, біографія цього актора невідома...',
   );
 }
 

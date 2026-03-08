@@ -14,7 +14,6 @@ function TopBanner() {
     },
     e(LogoPanel),
     e(BtnPanel),
-    e(InputSearch),
   );
 }
 
@@ -70,7 +69,7 @@ function BtnPanel() {
 
 function LogoImg() {
   return e(
-    'button',
+    'div',
     {
       style: {
         ...button1,
@@ -109,6 +108,7 @@ function ThemeBtn() {
       },
       onClick: () => {
         g.setIsDarkTheme(!g.isDarkTheme);
+        localStorage.setItem('AnimeHubDarkTheme', !g.isDarkTheme);
       },
       className: 'fa-solid ' + (g.isDarkTheme == false ? ' fa-sun' : ' fa-moon'),
     },

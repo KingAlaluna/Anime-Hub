@@ -87,6 +87,10 @@ function Button6(props) {
       style: {
         ...button3,
         background: props.isAc ? (g[`is${props.isAc}`] == props.text && g[`is${props.isAc}2`] == true ? 'var(--gradient-8)' : 'var(--gradient-5)') : (isActive ? 'var(--gradient-8)' : 'var(--gradient-5)'),
+        padding: 'clamp(5px, 1vmin, 10px)',
+        minHeight: 'clamp(35px, 5vh, 50px)',
+        height: 'auto',
+        maxHeight: 'max-content',
       },
       onClick: () => {
         props.isAc ? (g[`setIs${props.isAc}`](props.text)) : (setIsActive(!isActive));
@@ -480,7 +484,7 @@ function Panel1(props) {
       },
     },
     e(Text1, {text: props.text}),
-    e(Panel2, {animeUrl: props.animeUrl}),
+    e(Panel2, {animeUrl: props.animeUrl, timer: props.timer || null}),
   );
 }
 
@@ -494,7 +498,7 @@ function Panel2(props) {
         display: 'block',
       },
     },
-    e(Panel3, {animeUrl: props.animeUrl}),
+    e(Panel3, {animeUrl: props.animeUrl, timer: props.timer || null}),
   );
 }
 
@@ -506,13 +510,21 @@ function Panel3(props) {
   const nav = useNavigate();
   
   useEffect(() => {
-    fetch(`https://api.jikan.moe/v4/${props.animeUrl}`)
-      .then(response => response.json())
-      .then(data => {
-        setAnimeList(data.data); 
-      })
-      .catch(err => console.error("Помилка API:", err));
+    const timer = setTimeout(() => {
+      fetch(`https://api.jikan.moe/v4/${props.animeUrl}`)
+        .then(response => response.json())
+        .then(data => {
+          setAnimeList(data.data); 
+        })
+        .catch(err => console.error("Помилка завантаженя списка аніме топ та інші:", err));
+    }, props.timer || 0);
+    
+    return () => clearTimeout(timer);
   }, []);
+  
+  if (!animeList) {
+    return e(Text1, {text: 'Завантаження...'});
+  }
 
   return e(
     'div',
@@ -551,8 +563,7 @@ function Panel3(props) {
         aniFavourite: alreadyFavorite, 
         
         onClick: () => {
-          nav('/AnimeViewing');
-          g.setIsAnimeData(anime);
+          nav(`/AnimeViewing/${anime?.mal_id}`);
         },
         
         onClickFav: () => {
@@ -589,7 +600,7 @@ function PanelRecomeng1(props) {
       },
     },
     e(Text1, {text: props.text}),
-    e(PanelRecomeng2, {url: props.url || null, animeFavourite: props.animeFavourite || null, }),
+    e(PanelRecomeng2, {url: props.url || null, animeFavourite: props.animeFavourite || null, timer: props.timer || null}),
   );
 }
 
@@ -618,7 +629,7 @@ function PanelRecomeng2(props) {
           console.error("Помилка API:", err);
           setAnimeLists([]);
         });
-    }, props.timeout || 2000);
+    }, props.timer || 2000);
     
     return () => clearTimeout(timer);
     } else {
@@ -627,6 +638,9 @@ function PanelRecomeng2(props) {
     }
   }, [props.url, g.isAnimeFavourite, g.isPaginDocument]);
   
+  if (!animeLists) {
+    return e(Text1, {text: 'Завантаження...'});
+  }
   
   return e(
     'div',
@@ -663,8 +677,7 @@ function PanelRecomeng2(props) {
         aniFavourite: alreadyFavorite, 
         
         onClick: () => {
-          nav('/AnimeViewing');
-          g.setIsAnimeData(anime);
+          nav(`/AnimeViewing/${anime?.mal_id}`);
         },
         
         onClickFav: () => {

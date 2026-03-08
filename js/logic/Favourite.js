@@ -10,7 +10,7 @@ function Favourite() {
         minHeight: '100%',
       },
     },
-    e(PanelRecomeng1, {text: 'Ваші улюбленні аніме:', animeFavourite: true,}),
+    e(PanelRecomeng1, {text: 'Ваші улюбленні аніме:', animeFavourite: true, timer: 0}),
     e(Pagination1),
     e(AllLawProtected1),
   );

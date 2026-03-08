@@ -1,5 +1,4 @@
 function Root() {
-  const g = s();
   return e(
     'div',
     {
@@ -7,8 +6,10 @@ function Root() {
         height: 'auto',
         flex: '1',
         overflow: 'auto',
+        backgroundColor: 'var(--color-fff)',
       },
     },
+    e(InputSearch),
     e(Outlet),
   );
 }

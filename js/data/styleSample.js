@@ -8,14 +8,14 @@ let button1 = {
 
 let button2 = {
   width: 'clamp(150px, 70%, 200px)',
-  height: 'clamp(40px, 7vh, 80px)',
+  height: 'clamp(35px, 5vh, 50px)',
   background: '#f30',
   margin: '2vmin',
 };
 
 let button3 = {
   width: '90%',
-  height: 'clamp(40px, 7vh, 80px)',
+  height: 'clamp(35px, 7vh, 50px)',
   background: '#fff',
   margin: '2vmin auto',
 };

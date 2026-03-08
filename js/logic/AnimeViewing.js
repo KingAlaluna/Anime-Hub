@@ -1,5 +1,20 @@
 function AnimeViewing() {
   const g = s();
+  const {animeId} = useParams();
+  
+  f(() => {
+    fetch(`https://api.jikan.moe/v4/anime/${animeId}`)
+      .then(response => response.json())
+      .then(data => {
+        g.setIsAnimeData(data.data);
+      })
+      .catch(err => console.error("Помилка завантаження аніме:", err));
+  }, []);
+  
+  if (!g.isAnimeData) {
+    return e(Text1, {text: 'Завантаження...'});
+  }
+  
   return e(
     'div',
     {
@@ -41,7 +56,7 @@ function AVGrid() {
 
 function AVimg() {
   const g = s();
-  const alreadyFavorite = g.isAnimeFavourite.some(i => i.mal_id === g.isAnimeData.mal_id);
+  const alreadyFavorite = g.isAnimeFavourite?.some(i => i?.mal_id === g.isAnimeData?.mal_id);
   
   return e(
     'div',
@@ -50,15 +65,15 @@ function AVimg() {
         height: 'max-content',
       },
     },
-    e(Anime2, {img: g.isAnimeData.images.webp.large_image_url || null}),
+    e(Anime2, {img: g.isAnimeData?.images?.webp?.large_image_url || null}),
     e(Button4, {width: '70%', aniFavourite: alreadyFavorite, 
       onClick: () => {
         g.setIsAnimeFavourite(prev => {
-          const alreadyFavorite = prev.some(i => i.mal_id === g.isAnimeData.mal_id);
+          const alreadyFavorite = prev?.some(i => i?.mal_id === g.isAnimeData?.mal_id);
           
           const newState = alreadyFavorite 
-            ? prev.filter(it => it.mal_id !== g.isAnimeData.mal_id) 
-            : [...prev, g.isAnimeData];
+            ? prev?.filter(it => it?.mal_id !== g.isAnimeData?.mal_id) 
+            : [...prev, g?.isAnimeData];
             
           localStorage.setItem('my_anime_favs', JSON.stringify(newState));
           return newState;
@@ -85,20 +100,20 @@ function AVInfoGrid() {
         alignItems: 'start',
       },
     },
-    e(Text7, {text: `Назва: ${g.isAnimeData.title || 'невідомо'}`,}),
-    e(Text7, {text: `Оцінка: ${g.isAnimeData.score || 'невідомо'}`,}),
-    e(Text7, {text: `Місце в топі: ${g.isAnimeData.rank || 'невідомо'}`,}),
-    e(Text7, {text: `Рік: ${g.isAnimeData.year || 'невідомо'}`, }),
-    e(Text7, {text: `Віковий рейтинг: ${g.isAnimeData.rating || 'невідомо'}`, }),
-    e(Text7, {text: `Студія/ї: ${g.isAnimeData.studios?.map(e => e.name).join(', ') || 'невідомо'}`, }),
-    e(Text7, {text: `Кількість епізодів: ${g.isAnimeData.episodes || 'невідомо'}`, }),
-    e(Text7, {text: `Довжина епізода: ${g.isAnimeData.duration || 'невідомо'}`, }),
-    e(Text7, {text: `Статус вихода: ${g.isAnimeData.status || 'невідомо'}`, }),
-    e(Text7, {text: `Чи виходить тепер: ${g.isAnimeData.airing ? 'так' : 'ні'}`, }),
-    e(Text7, {text: `Жанри: ${g.isAnimeData.genres?.map(e => e.name).join(', ') || 'невідомо'}`, }),
-    e(Text7, {text: `Тематика: ${g.isAnimeData.themes?.map(e => e.name).join(', ') || 'невідомо'}`, }),
-    e(Text7, {text: `Тип: ${g.isAnimeData.type || 'невідомо'}`, }),
-    e(Text7, {text: `Первине джерело: ${g.isAnimeData.source || 'невідомо'}`, }),
+    e(Text7, {text: `Назва: ${g.isAnimeData?.title || 'невідомо'}`,}),
+    e(Text7, {text: `Оцінка: ${g.isAnimeData?.score || 'невідомо'}`,}),
+    e(Text7, {text: `Місце в топі: ${g.isAnimeData?.rank || 'невідомо'}`,}),
+    e(Text7, {text: `Рік: ${g.isAnimeData?.year || 'невідомо'}`, }),
+    e(Text7, {text: `Віковий рейтинг: ${g.isAnimeData?.rating || 'невідомо'}`, }),
+    e(Text7, {text: `Студія/ї: ${g.isAnimeData?.studios?.map(e => e.name).join(', ') || 'невідомо'}`, }),
+    e(Text7, {text: `Кількість епізодів: ${g.isAnimeData?.episodes || 'невідомо'}`, }),
+    e(Text7, {text: `Довжина епізода: ${g.isAnimeData?.duration || 'невідомо'}`, }),
+    e(Text7, {text: `Статус вихода: ${g.isAnimeData?.status || 'невідомо'}`, }),
+    e(Text7, {text: `Чи виходить тепер: ${g.isAnimeData?.airing ? 'так' : 'ні'}`, }),
+    e(Text7, {text: `Жанри: ${g.isAnimeData?.genres?.map(e => e.name).join(', ') || 'невідомо'}`, }),
+    e(Text7, {text: `Тематика: ${g.isAnimeData?.themes?.map(e => e.name).join(', ') || 'невідомо'}`, }),
+    e(Text7, {text: `Тип: ${g.isAnimeData?.type || 'невідомо'}`, }),
+    e(Text7, {text: `Первине джерело: ${g.isAnimeData?.source || 'невідомо'}`, }),
   );
 }
 
@@ -142,7 +157,7 @@ function AVSynopsisText() {
         padding: '5vmin',
       },
     },
-    g.isAnimeData.synopsis || 'Нажаль, опис відсутній...',
+    g.isAnimeData?.synopsis || 'Нажаль, опис відсутній...',
   );
 }
 
@@ -159,7 +174,7 @@ function AVTrailer() {
         borderRadius: '10px',
         margin: '5vmin',
       },
-      src: g.isAnimeData.trailer?.embed_url || '',
+      src: g.isAnimeData?.trailer?.embed_url || '',
       allow: `accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen`,
       title: 'Відео-плеєр трейлера',
       allowFullScreen: true,
@@ -174,10 +189,11 @@ function AVTrailer() {
 function Characters() {
   const g = s();
   const nav = useNavigate();
+  const {animeId} = useParams();
   const [isCharacters, setIsCharacters] = useState([]);
   
   useEffect(() => {
-    fetch(`https://api.jikan.moe/v4/anime/${g.isAnimeData.mal_id}/characters`)
+    fetch(`https://api.jikan.moe/v4/anime/${animeId}/characters`)
       .then(response => response.json())
       .then(data => {
         setIsCharacters(data.data); 
@@ -213,8 +229,9 @@ function Characters() {
         
         
         onClick: () => {
-          g.setIsCurrCharacter(c);
-          nav('InfoCharacters');
+          //g.setIsCurrCharacter(c);
+          //console.log(c);
+          nav(`/InfoCharacters/${c.character.mal_id}`);
         },
       })
     ) : null,

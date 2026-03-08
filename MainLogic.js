@@ -1,6 +1,6 @@
 function MainLogic() {
   //хуки
-  const [isDarkTheme, setIsDarkTheme] = useState(() => window.matchMedia?.('(prefers-color-scheme: dark)').matches);
+  const [isDarkTheme, setIsDarkTheme] = useState(localStorage.getItem('AnimeHubDarkTheme') || window.matchMedia?.('(prefers-color-scheme: dark)').matches);
   const [isActBtn, setIsActBtn] = useState('fa-home');
   
   //аніме
@@ -86,10 +86,10 @@ function MainLogic() {
           e(Route, {path: '/Favourite', element: e(Favourite)}),
           e(Route, {path: '/MyProjects', element: e(MyProjects)}),
           e(Route, {path: '/AboutMe', element: e(AboutMe)}),
-          e(Route, {path: '/AnimeViewing', element: e(AnimeViewing)}),
-          e(Route, {path: '/InfoCharacters', element: e(InfoCharacters)}),
-          e(Route, {path: '/InfoActors', element: e(InfoActors)}),
-          e(Route, {path: '/AnimeSearch', element: e(AnimeSearch)}),
+          e(Route, {path: '/AnimeViewing/:animeId', element: e(AnimeViewing)}),
+          e(Route, {path: '/InfoCharacters/:characterId', element: e(InfoCharacters)}),
+          e(Route, {path: '/InfoActors/:actorsId', element: e(InfoActors)}),
+          e(Route, {path: '/AnimeSearch/:search', element: e(AnimeSearch)}),
         ),
       ),
       e(BottomBanner),
