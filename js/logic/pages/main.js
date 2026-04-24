@@ -2,7 +2,7 @@ import {e, s, useNavigate, f} from '../../data/initial-state.js';
 import {Pagination1} from '../../layout/paginations.js';
 import {PanelRecomeng1, Panel1} from '../../layout/anime-render-lists.js';
 import {FooterCopy} from '../../layout/footer-copy.js';
-import {arrayGenres, arrayTypes, arrayYears, arrayStudios, } from '/js/data/filter-anime.js';
+import {arrayGenres, arrayTypes, arrayYears, arrayStudios, } from '../../data/filter-anime.js';
 
 
 export function Main() {
