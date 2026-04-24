@@ -1,4 +1,22 @@
-function Filter() {
+import {e, s, } from '../../data/initial-state.js';
+import {Pagination1} from '../../layout/paginations.js';
+import {PanelRecomeng1, } from '../../layout/anime-render-lists.js';
+import {FooterCopy} from '../../layout/footer-copy.js';
+import {FilterPanel} from '../../layout/anime-filters.js';
+import {
+  arrayGenres, 
+  arrayTypes, 
+  arrayYears, 
+  arrayStudios, 
+  
+  filterGenres,
+  filtersTypes,
+  filtersStudios,
+  filtersYears,
+} from '../../data/filter-anime.js';
+
+
+export function Filter() {
   const g = s();
   
   return e(
@@ -36,7 +54,7 @@ function Filter() {
     }),
     e(PanelRecomeng1, {text: 'Результати фільтра:', url: g.isAnimeUrl, timer: 0, }),
     e(Pagination1),
-    e(AllLawProtected1),
+    e(FooterCopy),
   );
 }
 
@@ -65,3 +83,4 @@ function buildAnimeUrl(props) {
 
   return `${baseUrl}?${params.toString()}`;
 }
+//67

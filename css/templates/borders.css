@@ -1,0 +1,65 @@
+.t-border-1 {
+  border-bottom: 2px solid transparent;
+  background-clip: padding-box, padding-box, border-box;
+  background-origin: border-box;
+}
+
+
+.t-border-2 {
+  border-bottom: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+}
+
+
+.t-border-3 {
+  border-top: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+}
+
+
+.t-border-4 {
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+}
+
+
+.t-border-5 {
+  border-left: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+}
+
+
+.t-border-6 {
+  border: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image: linear-gradient(var(--color-fff), var(--color-fff)), var(--gradient-18);
+}
+
+
+.t-border-7 {
+  border-left: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image: linear-gradient(var(--color-fff), var(--color-fff)), var(--gradient-18);
+}
+
+
+.t-border-8 {
+  border-bottom: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image: linear-gradient(var(--color-fff), var(--color-fff)), var(--gradient-18);
+}
+
+
+.t-border-9 {
+  border-left: 2px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image: var(--gradient-2), var(--gradient-18);
+}

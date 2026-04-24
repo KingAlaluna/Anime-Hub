@@ -1,4 +1,11 @@
-function InfoCharacters() {
+import {e, s, useNavigate, useParams, f, } from '../../data/initial-state.js';
+import {FooterCopy} from '../../layout/footer-copy.js';
+import {Text1, Text7} from '../../layout/texts.js';
+import {Url2} from '../../layout/urls.js';
+import {CharactersPanel} from './anime-view.js';
+
+
+export function InfoCharacters() {
   const g = s();
   const c = g.isCurrCharacter;
   const {characterId} = useParams();
@@ -28,7 +35,7 @@ function InfoCharacters() {
     e(CharactersGrid),
     e(Text1, {text: 'Актори/актриси озвучки (натисніть на актора/актрису для більш детальноі інформації):'}),
     e(Actors, {characters: c}),
-    e(AllLawProtected1),
+    e(FooterCopy),
   );
 }
 
@@ -70,9 +77,9 @@ function CharactersImg2(props) {
         borderRadius: '10px',
         margin: '5vmin',
         width: '70%',
-        ...border4,
         backgroundImage: `url(${props.img || null}), var(--gradient-18)`,
       },
+      className: 't-border-4 ',
     },
     
   );
@@ -106,15 +113,14 @@ function CharInfoGrid() {
     'div',
     {
       style: {
-        ...grid2,
         height: 'max-content',
         width: '90%',
         borderRadius: '10px',
         margin: '5vmin',
         alignItems: 'start',
-        ...border5,
         backgroundImage: 'var(--gradient-1), var(--gradient-18)',
       },
+      className: 't-grid-2 t-border-5 ',
     },
     e(Text7, {text: c?.name ? `Ім'я: ${c?.name}` : `Ім'я: невідомо`, }),
     e(Url2, {text: c?.url ? `Посилання: ${c?.url}` : `Посилання: невідомо`, href: c?.url ? c?.url : '#', }),
@@ -184,3 +190,4 @@ function Actors(props) {
     ),
   );
 }
+//186

@@ -1,4 +1,10 @@
-function InfoActors() {
+import {e, s, useParams, f, } from '../../data/initial-state.js';
+import {FooterCopy} from '../../layout/footer-copy.js';
+import {Text1, Text7} from '../../layout/texts.js';
+import {Url2} from '../../layout/urls.js';
+
+
+export function InfoActors() {
   const g = s();
   const {actorsId} = useParams();
   
@@ -25,7 +31,7 @@ function InfoActors() {
       },
     },
     e(ActorsGrid),
-    e(AllLawProtected1),
+    e(FooterCopy),
   );
 }
 
@@ -67,9 +73,9 @@ function ActorsImg2(props) {
         borderRadius: '10px',
         margin: '5vmin',
         width: '70%',
-        ...border4,
         backgroundImage: `url(${props.img || null}), var(--gradient-18)`,
       },
+      className: 't-border-4 ',
     },
     
   );
@@ -103,15 +109,14 @@ function AInfoGrid(props) {
     'div',
     {
       style: {
-        ...grid2,
         height: 'max-content',
         width: '90%',
         borderRadius: '10px',
-        ...border5,
         backgroundImage: 'var(--gradient-1), var(--gradient-18)',
         margin: '5vmin',
         alignItems: 'start',
       },
+      className: 't-border-5 t-grid-2 ',
     },
     e(Text7, {text: c?.name ? `Ім'я: ${c?.name}` : `Ім'я: невідомо`, }),
     e(Url2, {text: c?.url ? `Посилання: ${c?.url}` : `Посилання: невідомо`, href: c?.url ? c?.url : '#', }),
@@ -141,5 +146,5 @@ function ASynopsisText(props) {
     c?.about || 'Нажаль, біографія цього актора невідома...',
   );
 }
-
+//143
 

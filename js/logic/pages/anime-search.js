@@ -1,4 +1,29 @@
-function InputSearch() {
+import {e, s, useNavigate, useParams} from '../../data/initial-state.js';
+import {Pagination1} from '../../layout/paginations.js';
+import {PanelRecomeng1} from '../../layout/anime-render-lists.js';
+import {FooterCopy} from '../../layout/footer-copy.js';
+
+
+export function AnimeSearch() {
+  const g = s();
+  
+  return e(
+    'div',
+    {
+      style: {
+        backgroundImage: 'var(--gradient-1)',
+        height: 'max-content',
+        minHeight: '100%',
+      },
+    },
+    e(PanelRecomeng1, {text: 'Результати пошуку:', url: g.isAnimeUrl, timer: 0,}),
+    e(Pagination1),
+    e(FooterCopy),
+  );
+}
+
+
+export function InputSearch() {
   const g = s();
   const nav = useNavigate();
   const {search} = useParams();
@@ -20,7 +45,6 @@ function InputSearch() {
         height: 'clamp(40px, 8vh, 60px)',
         width: '100%',
         border: 'none',
-        ...border8,
         outline: 'none',
         padding: '1vh 3vw',
         display: g.isInputSearshAc ? 'block' : 'none',
@@ -28,27 +52,10 @@ function InputSearch() {
       type: 'search',
       placeholder: 'Введіть назву аніме...',
       onKeyDown: handleKeyDown,
+      className: 't-border-8 ',
     },
     
   );
 }
-
-
-function AnimeSearch() {
-  const g = s();
-  
-  return e(
-    'div',
-    {
-      style: {
-        backgroundImage: 'var(--gradient-1)',
-        height: 'max-content',
-        minHeight: '100%',
-      },
-    },
-    e(PanelRecomeng1, {text: 'Результати пошуку:', url: g.isAnimeUrl, timer: 0,}),
-    e(Pagination1),
-    e(AllLawProtected1),
-  );
-}
+//59
 

@@ -1,4 +1,8 @@
-function Root() {
+import {e, Outlet} from '../data/initial-state.js';
+import {InputSearch} from './pages/anime-search.js';
+
+
+export function Root() {
   return e(
     'div',
     {
@@ -13,4 +17,4 @@ function Root() {
     e(Outlet),
   );
 }
-
+//15

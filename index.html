@@ -6,13 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="AnimeHub — це сучасний онлайн-каталог аніме, що працює на базі Jikan API (офіційний сервіс MyAnimeList). Наша система забезпечує пошук аніме в режимі реального часу, надаючи користувачам доступ до величезної бази даних: жанри аніме, рейтинги, дати виходу та студії виробництва, а також детальну інформацію про аніме, персонажів аніме, акторів озвучки персонажів. Завдяки повній інтеграції з API, інформація про топ аніме, популярні серіали, новинки та інша завжди залишається актуальною для наших відвідувачів.">
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
-
-
+  <link rel="icon" href="img/my-logo/logo.svg" type="image/svg+xml">
+  
   <title>AnimeHub — сайт для пошуку інформації про аніме</title>
+  
+  
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/light-theme.css">
-  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/themes.css/general.css">
+  <link rel="stylesheet" href="css/themes.css/light.css">
+  <link rel="stylesheet" href="css/themes.css/dark.css">
+  
+  <link rel="stylesheet" href="css/utils.css">
+  
+  <link rel="stylesheet" href="css/templates/borders.css">
+  <link rel="stylesheet" href="css/templates/btns.css">
+  <link rel="stylesheet" href="css/templates/grids.css">
+  <link rel="stylesheet" href="css/templates/positions.css">
+  <link rel="stylesheet" href="css/templates/titles.css">
+  
+  <link rel="stylesheet" href="css/layout/footer-copy.css">
+  
   <link rel="stylesheet" href="css/main-style.css">
   
   <!--бібліотеки-->
@@ -30,60 +43,9 @@
     
   </div>
   
+  <script src="error.js"></script>
+  <script type="module" src="js/logic/main-logic.js"></script>
   
-  <!--react-->
-  <script defer src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script defer src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  
-  
-  <script defer src="https://unpkg.com/@remix-run/router@1.15.3/dist/router.umd.min.js"></script>
-  <script defer src="https://unpkg.com/react-router@6.22.3/dist/umd/react-router.production.min.js"></script>
-  <script defer src="https://unpkg.com/react-router-dom@6.22.3/dist/umd/react-router-dom.production.min.js"></script>
-  
-  
-  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
-  
-  <!--data-->
-  <script defer src="js/data/initialState.js"></script>
-  <script defer src="js/data/styleSample.js"></script>
-  <script defer src="js/data/componentsInterface.js"></script>
-  <script defer src="js/data/aboutMeText.js"></script>
-  <script defer src="js/data/MyProjectsText.js"></script>
-  <script defer src="js/data/filterAnime.js"></script>
-  
-  
-  <!--logic-->
-  <script defer src="js/logic/TopBanner.js"></script>
-  <script defer src="js/logic/Root.js"></script>
-  <script defer src="js/logic/BottomBanner.js"></script>
-  <script defer src="js/logic/Main.js"></script>
-  <script defer src="js/logic/Filter.js"></script>
-  <script defer src="js/logic/Favourite.js"></script>
-  <script defer src="js/logic/MyProjects.js"></script>
-  <script defer src="js/logic/AboutMe.js"></script>
-  <script defer src="js/logic/AnimeViewing.js"></script>
-  <script defer src="js/logic/InfoCharacters.js"></script>
-  <script defer src="js/logic/InfoActors.js"></script>
-  <script defer src="js/logic/AnimeSearch.js"></script>
-  
-  
-  <!--main logic-->
-  <script defer src="MainLogic.js"></script>
-
-
-<!--sw.js-->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', async () => {
-      try {
-        const reg = await navigator.serviceWorker.register('sw.js');
-      } catch (err) {
-        console.error('Помилка SW:', err);
-      }
-    });
-  }
-</script>
 </body>
 </html>
 

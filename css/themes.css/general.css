@@ -1,0 +1,16 @@
+:root {
+  --btn-bg: var(--gray-50);
+  --anime-info-span-bg: var(--gray-50);
+  --footer-copy-bg: var(--gray-50);
+  --search-wrap-bg: var(--gray-50);
+  --wrap-scroll-progress-bg: var(--gray-50);
+  --anime-wrap-bg: var(--gray-50);
+  --anime-description-bg: var(--gray-50);
+  --anime-info-wrap-bg: var(--gray-50);
+  
+  --btn-box-shadow: var(--gray-250);
+  --scroll-progress-box-shadow: var(--gray-250);
+  
+}
+
+

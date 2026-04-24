@@ -1,0 +1,21 @@
+.t-grid-1 {
+  display: grid;
+  grid-template: 1fr / repeat(5, 1fr);
+  justify-items: center;
+}
+
+
+.t-grid-2 {
+  display: grid;
+  grid-template: auto / repeat(2, 1fr);
+  justify-items: center;
+}
+
+
+.t-grid-3 {
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  justify-items: center;
+}
+
+

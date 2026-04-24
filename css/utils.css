@@ -1,0 +1,39 @@
+:root {
+  --radius: 0.5rem;
+  --btn-none: none;
+  --bottom-nav: flex;
+  --columns: 2;
+  --padding: 4rem;
+  --anime-row-scroll: 1rem;
+  --max-width: calc(100% - 2rem);
+  --view-cols: 1;
+}
+
+
+@media (min-width: 700px) {
+  :root {
+    --btn-none: flex;
+    --bottom-nav: none;
+    --columns: 4;
+    --padding: 0rem;
+    --view-cols: 2;
+  }
+}
+
+@media (min-width: 930px) {
+  :root {
+    --columns: 5;
+  }
+}
+
+@media (min-width: 1300px) {
+  :root {
+    --columns: 6;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --columns: 7;
+  }
+}

@@ -1,3 +1,29 @@
+import '../../sw-init.js';
+
+import {
+  e, 
+  useEffect, 
+  useState, 
+  GlobalContext, 
+  createRoot,
+  
+  HashRouter,
+  Routes,
+  Route,
+} from '../data/initial-state.js';
+
+import {MainBanner} from './main-banner.js';
+import {BottomNav} from './bottom-nav.js';
+import {Root} from './root.js';
+import {Main} from './pages/main.js';
+import {InfoActors} from './pages/info-actors.js';
+import {InfoCharacters} from './pages/info-characters.js';
+import {AnimeViewing} from './pages/anime-view.js';
+import {AnimeSearch} from './pages/anime-search.js';
+import {Favourite} from './pages/anime-favorites.js';
+import {Filter} from './pages/anime-filter.js';
+
+
 function MainLogic() {
   //хуки
   const [isDarkTheme, setIsDarkTheme] = useState(localStorage.getItem('AnimeHubDarkTheme') || window.matchMedia?.('(prefers-color-scheme: dark)').matches);
@@ -78,25 +104,25 @@ function MainLogic() {
     HashRouter, null,
     e(
       GlobalContext.Provider, { value: allState },
-      e(TopBanner),
+      e(MainBanner),
       e(Routes, null,
         e(Route, {element: e(Root)},
           e(Route, {path: '/', element: e(Main)}),
           e(Route, {path: '/Filter', element: e(Filter)}),
           e(Route, {path: '/Favourite', element: e(Favourite)}),
-          e(Route, {path: '/MyProjects', element: e(MyProjects)}),
-          e(Route, {path: '/AboutMe', element: e(AboutMe)}),
           e(Route, {path: '/AnimeViewing/:animeId', element: e(AnimeViewing)}),
           e(Route, {path: '/InfoCharacters/:characterId', element: e(InfoCharacters)}),
           e(Route, {path: '/InfoActors/:actorsId', element: e(InfoActors)}),
           e(Route, {path: '/AnimeSearch/:search', element: e(AnimeSearch)}),
         ),
       ),
-      e(BottomBanner),
+      e(BottomNav),
     ),
   );
 }
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(e(MainLogic));
+//128
+console.log('все работает');

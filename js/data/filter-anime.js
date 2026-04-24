@@ -1,4 +1,3 @@
-// фільтри аніме
 // загальний шаблон фільтра
 class Filter1 {
   constructor(name, url) {
@@ -9,7 +8,7 @@ class Filter1 {
 
 
 // фільтри жанрів
-const filterGenres = [
+export const filterGenres = [
   new Filter1('Екшен', 1),
   new Filter1('Пригоди', 2),
   new Filter1('Комедія', 4),
@@ -44,7 +43,7 @@ const filterGenres = [
 
 
 // фільтри типів
-const filtersTypes = [
+export const filtersTypes = [
   new Filter1('Телесеріали', 'tv'),
   new Filter1('Фільми', 'movie'),
   new Filter1('OVA', 'ova'),
@@ -55,7 +54,7 @@ const filtersTypes = [
 
 
 // фільтри років
-const filtersYears = [
+export const filtersYears = [
   new Filter1('2026', 2026),
   new Filter1('2025', 2025),
   new Filter1('2024', 2024),
@@ -97,7 +96,7 @@ const filtersYears = [
 
 
 // фільтри студій
-const filtersStudios = [
+export const filtersStudios = [
   new Filter1('Bones', 4),
   new Filter1('Production I.G', 10),
   new Filter1('Madhouse', 11),
@@ -122,8 +121,8 @@ const filtersStudios = [
 
 
 //вибрані фільтри
-const arrayGenres = [];
-const arrayTypes = [];
-const arrayYears = [];
-const arrayStudios = [];
+export const arrayGenres = [];
+export const arrayTypes = [];
+export const arrayYears = [];
+export const arrayStudios = [];
 

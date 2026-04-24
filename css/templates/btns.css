@@ -1,0 +1,24 @@
+.t-btn-1 {
+  width: auto;
+  height: 3rem;
+  aspect-ratio: 1/1;
+  background: #f30;
+}
+
+
+.t-btn-2 {
+  width: clamp(150px, 70%, 200px);
+  height: clamp(35px, 5vh, 50px);
+  background: #f30;
+  margin: 2vmin;
+}
+
+
+.t-btn-3 {
+  width: 90%;
+  height: clamp(35px, 7vh, 50px);
+  background: #fff;
+  margin: 2vmin auto;
+}
+
+

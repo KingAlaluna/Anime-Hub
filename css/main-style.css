@@ -1,4 +1,4 @@
-/*загальні стилі*/
+/*general styles*/
 * {
   background-size: 100% 100%;
   background-position: center;
@@ -45,7 +45,7 @@ iframe {
 
 
 .fa-solid {
-  font-size: clamp(30px, 5vh, 60px);
+  font-size: 2rem;
 }
 .fa-solid-1 {
   font-size: 90%;
@@ -74,7 +74,7 @@ iframe {
 }
 
 
-.fa-solid:active, .fa-solid:hover, .fa-solid:focus {
+.fa-solid:hover {
   animation: button-active-1 0.7s ease;
 }
 
@@ -100,10 +100,6 @@ iframe {
   
   .panel-2 {
     display: none !important;
-  }
-  
-  .fa-solid-1 {
-    font-size: 90%;
   }
   
   .button1 {

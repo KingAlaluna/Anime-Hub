@@ -1,16 +1,22 @@
-function TopBanner() {
+import {e, s, useNavigate} from '../data/initial-state.js';
+import {Btn7, Btn1, Btn8} from '../layout/btns.js';
+
+
+export function MainBanner() {
   return e(
     'div',
     {
       style: {
-        ...border1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        height: 'clamp(60px, 10%, 100px)',
+        height: '4rem',
         backgroundImage: 'var(--gradient-16), linear-gradient(var(--color-fff), var(--color-fff)), var(--gradient-17)',
         boxShadow: '0 0 2.5vh 2.5vh var(--color-1)',
         zIndex: '1',
+        padding: '0 1rem',
+        gap: '2rem',
       },
+      className: 't-border-1',
     },
     e(LogoPanel),
     e(BtnPanel),
@@ -24,6 +30,8 @@ function LogoPanel() {
       style: {
         flexDirection: 'row',
         width: 'max-content',
+        gap: '0.5rem',
+        flex: '0 1 auto',
       },
     },
     e(LogoImg),
@@ -41,28 +49,23 @@ function BtnPanel() {
       style: {
         flexDirection: 'row',
         width: 'max-content',
+        gap: '1rem',
       },
     },
-    e(Button7, {className: 'fa-magnifying-glass', onClick: () => g.setIsInputSearshAc(!g.isInputSearshAc), bg: g.isInputSearshAc ? 'var(--gradient-9)' : 'var(--gradient-5)' }),
+    e(Btn7, {className: 'fa-magnifying-glass', onClick: () => g.setIsInputSearshAc(!g.isInputSearshAc), bg: g.isInputSearshAc ? 'var(--gradient-9)' : 'var(--gradient-5)' }),
     e(ThemeBtn, {}),
     
-    e(Button1, {className: 'fa-home', className2: 'button1', onClick: () => {
+    e(Btn1, {className: 'fa-home', className2: 'button1', onClick: () => {
       g.setIsPaginDocument(1);
       nav('/');
     }}),
-    e(Button1, {className: 'fa-sliders-h', className2: 'button1', noNewFav: true, onClick: () => {
+    e(Btn1, {className: 'fa-sliders-h', className2: 'button1', noNewFav: true, onClick: () => {
       g.setIsPaginDocument(1);
       nav('/Filter');
     }}),
-    e(Button8, {className: 'fa-heart', className2: 'button1', onClick: () => {
+    e(Btn8, {className: 'fa-heart', className2: 'button1', onClick: () => {
       g.setIsPaginDocument(1);
       nav('/Favourite');
-    }}),
-    e(Button1, {className: 'fa-laptop-code', className2: 'button1', onClick: () => {
-      nav('/MyProjects');
-    }}),
-    e(Button1, {className: 'fa-user-tie', className2: 'button1', onClick: () => {
-      nav('/AboutMe');
     }}),
   );
 }
@@ -72,10 +75,10 @@ function LogoImg() {
     'div',
     {
       style: {
-        ...button1,
         borderRadius: '10px',
-        backgroundImage: 'url(img/logo.svg), var(--gradient-6)',
+        backgroundImage: 'url(img/my-logo/logo.svg), var(--gradient-6)',
       },
+      className: 't-btn-1'
     },
     
   );
@@ -86,10 +89,15 @@ function LogoText() {
     'h1',
     {
       style: {
-        ...title1,
         fontWeight: '900',
         fontFamily: 'Montserrat, sans-serif',
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        flex: '0 1 auto',
+        //minWidth: '0',
       },
+      className: 't-title-1',
     },
     'AnimeHub',
   );
@@ -102,16 +110,15 @@ function ThemeBtn() {
     'button',
     {
       style: {
-        ...button1,
-        ...title2,
         backgroundImage: 'var(--gradient-11), var(--gradient-10)',
       },
       onClick: () => {
         g.setIsDarkTheme(!g.isDarkTheme);
         localStorage.setItem('AnimeHubDarkTheme', !g.isDarkTheme);
       },
-      className: 'fa-solid ' + (g.isDarkTheme == false ? ' fa-sun' : ' fa-moon'),
+      className: 't-title-2 t-btn-1 fa-solid ' + (g.isDarkTheme == false ? ' fa-sun' : ' fa-moon'),
     },
     
   );
 }
+//115

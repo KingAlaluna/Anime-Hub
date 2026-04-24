@@ -1,4 +1,3 @@
-/*темна тема*/
 [data-theme="dark"] {
   /*кольори*/
   --color-000: #fff;
@@ -105,4 +104,25 @@
 }
 
 
+
+[data-theme="dark"] {
+  /*palette colors*/
+  --gray-50: hsla(240, 10%, 10%, 1);
+  --gray-250: hsla(240, 10%, 50%, 1);
+  
+  
+  --border: 1px solid hsla(240, 20%, 30%, 1);
+  
+  --text: hsla(240, 10%, 95%, 1);
+  --footer-copy-txt: hsla(240, 10%, 70%, 1);
+  
+  --general-bg: hsla(200, 15%, 5%, 1);
+  --wrap-top-anime-bg: hsla(260, 15%, 5%, 1);
+  --footer-copy-logo-bg: hsla(240, 10%, 40%, 0.3);
+  
+  --logo-bg: linear-gradient(155deg, hsla(300, 100%, 80%, 1) 0%, hsla(200, 100%, 80%, 1) 100%);
+  
+  --theme-img: url(../img/style/dark-theme.svg);
+  
+}
 

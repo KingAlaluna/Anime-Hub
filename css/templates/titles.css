@@ -1,0 +1,27 @@
+.t-title-1 {
+  background: var(--gradient-6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.t-title-2 {
+  background: var(--gradient-6), var(--gradient-3);
+  -webkit-background-clip: text, border-box;
+  -webkit-text-fill-color: transparent;
+  background-clip: text, border-box;
+  color: transparent;
+}
+
+
+.t-title-3 {
+  background: var(--gradient-19);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+

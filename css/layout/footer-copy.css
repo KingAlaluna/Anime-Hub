@@ -1,0 +1,58 @@
+.footer-copy-wrap {
+  height: max-content;
+  width: 100%;
+  padding: 2rem 1rem calc(2rem + var(--padding)) 1rem;
+  margin-top: 1rem;
+  background-image: var(--gradient-3), var(--gradient-17);
+  background-clip: padding-box, padding-box, border-box;
+  
+  * {
+    color: var(--footer-copy-txt);
+  }
+  
+  a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  .logo-wrap,
+  .my-contacts-wrap,
+  .copy-wrap {
+    width: max-content;
+    max-width: 100%;
+    height: max-content;
+    flex-direction: row;
+    
+    .logo {
+      width: 3rem;
+      height: 3rem;
+      border-radius: var(--radius);
+      background: var(--footer-copy-logo-bg);
+      margin: 0 1rem 0 0;
+      
+      &.mit {
+        width: auto;
+      }
+    }
+  }
+  
+  .copy-wrap {
+    margin: 3rem 0 0 0;
+    
+    span {
+      flex: 0 1 auto;
+    }
+  }
+  
+  .wrap-my-project {
+    margin: 0 0 3rem 0;
+    width: 100%;
+    height: max-content;
+    
+    ul {
+      display: grid;
+      grid-template: auto / repeat(auto-fill, minmax(16rem, 1fr));
+    }
+  }
+}
+

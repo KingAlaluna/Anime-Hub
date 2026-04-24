@@ -1,4 +1,12 @@
-function AnimeViewing() {
+import {e, s, useNavigate, useParams, f, useState, useEffect, } from '../../data/initial-state.js';
+import {FooterCopy} from '../../layout/footer-copy.js';
+import {Text1, Text4, Text5, Text7} from '../../layout/texts.js';
+import {Btn4} from '../../layout/btns.js';
+import {Url1} from '../../layout/urls.js';
+import {Anime2} from '../../layout/animes.js';
+
+
+export function AnimeViewing() {
   const g = s();
   const {animeId} = useParams();
   
@@ -30,7 +38,7 @@ function AnimeViewing() {
     e(AVTrailer),
     e(Text1, {text: 'Персонажі (натисніть на персонажа для більш детальноі інформації):'}),
     e(Characters),
-    e(AllLawProtected1),
+    e(FooterCopy),
   );
 }
 
@@ -66,7 +74,7 @@ function AVimg() {
       },
     },
     e(Anime2, {img: g.isAnimeData?.images?.webp?.large_image_url || null}),
-    e(Button4, {width: '70%', aniFavourite: alreadyFavorite, 
+    e(Btn4, {width: '70%', aniFavourite: alreadyFavorite, 
       onClick: () => {
         g.setIsAnimeFavourite(prev => {
           const alreadyFavorite = prev?.some(i => i?.mal_id === g.isAnimeData?.mal_id);
@@ -91,14 +99,13 @@ function AVInfoGrid() {
     'div',
     {
       style: {
-        ...grid2,
         height: 'max-content',
         width: '90%',
         borderRadius: '10px',
-        ...border9,
         margin: '5vmin',
         alignItems: 'start',
       },
+      className: 't-grid-2 t-border-9 ',
     },
     e(Text7, {text: `Назва: ${g.isAnimeData?.title || 'невідомо'}`,}),
     e(Text7, {text: `Оцінка: ${g.isAnimeData?.score || 'невідомо'}`,}),
@@ -126,9 +133,9 @@ function AVSynopsis() {
       style: {
         borderRadius: '10px',
         width: '90%',
-        ...border9,
         margin: '5vmin',
       },
+      className: 't-border-9 ',
     },
     e(AVSynopsisPanel),
     e(AVSynopsisText),
@@ -240,7 +247,7 @@ function Characters() {
 
 
 //персонаж панель
-function CharactersPanel(props) {
+export function CharactersPanel(props) {
   return e(
     'div',
     {
@@ -248,11 +255,11 @@ function CharactersPanel(props) {
         height: '45vmin',
         flexDirection: 'row',
         borderRadius: '10px',
-        ...border6,
         width: '90%',
         margin: '5%',
       },
       onClick: props.onClick || null,
+      className: 't-border-6 ',
     },
     e(CharactersImg, {img: props.img || ''}),
     e(CharactersInfo, {
@@ -296,4 +303,4 @@ function CharactersInfo(props) {
     e(Url1, {text: props.url || '', href: props.href || '#'}),
   );
 }
-
+//298

@@ -1,4 +1,3 @@
-/*світла тема*/
 :root {
   /*кольори*/
   --color-000: #000;
@@ -105,5 +104,27 @@
 
 }
 
+
+
+:root {
+  /*palette colors*/
+  --gray-50: hsla(200, 10%, 95%, 1);
+  --gray-250: hsla(200, 10%, 70%, 1);
+  
+  
+  --border: 1px solid hsla(200, 10%, 75%, 1);
+  
+  --text: hsla(240, 10%, 10%, 1);
+  --footer-copy-txt: hsla(240, 10%, 40%, 1);
+  
+  --general-bg: hsla(200, 10%, 99%, 1);
+  --wrap-top-anime-bg: hsla(260, 10%, 99%, 1);
+  --footer-copy-logo-bg: hsla(200, 10%, 70%, 0.3);
+  
+  --logo-bg: linear-gradient(155deg, hsla(260, 100%, 30%, 1) 0%, hsla(300, 100%, 20%, 1) 100%);
+  
+  --theme-img: url(../img/style/light-theme.svg);
+  
+}
 
 
