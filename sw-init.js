@@ -3,7 +3,7 @@ if ('serviceWorker' in navigator) {
     try {
       const reg = await navigator.serviceWorker.register('sw.js');
     } catch (e) {
-      console.log('Помилка sw-init.js', e);
+      console.error('Помилка sw-init.js', e);
     }
   });
 }

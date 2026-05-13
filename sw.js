@@ -1,4 +1,4 @@
-const VERSION = '2.0.0-alpha.2';
+const VERSION = '2.0.0-alpha.3';
 
 self.addEventListener('install', (event) => {
   

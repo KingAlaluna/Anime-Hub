@@ -124,5 +124,3 @@ function MainLogic() {
 
 const root = createRoot(document.getElementById('root'));
 root.render(e(MainLogic));
-//128
-console.log('все работает');

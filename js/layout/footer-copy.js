@@ -2,6 +2,63 @@ import {e, } from '../data/initial-state.js';
 import {Text2} from './texts.js';
 
 
+const url = 'https://my-projects-and-about-me-api.kvses0417.workers.dev/projects';
+const nameProject = 'AnimeHub-SPA';
+
+let data = null;
+
+try {
+  const json = await fetch(url);
+  const jsonData = await json.json();
+  data = await jsonData;
+} catch (e) {
+  console.error('Помилка в footer-copy.js', e);
+}
+
+function ProjectsRender({data}) {
+  return data?.map(el => {
+    if (el.name == nameProject) {
+      return;
+    }
+    
+    const {
+      name,
+      status,
+      type,
+      urlProject,
+      urlCode,
+    } = el;
+    
+    return e(AUrlLi, {key: name, title: name, name: name, type: type, status: status, });
+  });
+}
+
+
+function SectionProjectsRender() {
+  return data?.map(el => {
+    const {
+      name,
+      data,
+    } = el;
+    
+    return e(
+      'section',
+      {
+        className: 'wrap-my-project',
+      },
+      e('h2', {}, `${name}:`),
+      e(
+        'ul',
+        {},
+        e(ProjectsRender, {data: data, }),
+      ),
+    );
+  });
+}
+
+
+
+
 export function FooterCopy() {
   return e(
     'footer',
@@ -16,8 +73,7 @@ export function FooterCopy() {
     e('p', {}, `PortfolioHub — збірка всіх моїх проєктів з детальним описом технологій реалізації та відмінностей, посиланнями на проєкти та вихідний код. А також детальна інформація про мене як програміста, опис моїх навичок, мої контакти. Найбільш корисно для IT роботодавців та інших людей пов'язаних з IT.`),
     e(AUrl, {name: 'PortfolioHub',}),
     e('h3', {}, 'Коротка інформація та посилання на інші мої проєкти:'),
-    e(WebsiteSection),
-    e(GameSection),
+    e(ProjectsWrap),
     e('h2', {}, 'Мої контакти:'),
     e('h3', {}, 'Вам потрібно зробити сайт чи хочете запропонувати вакансію? Напишіть мені!'),
     e(AddressWrap),
@@ -80,49 +136,43 @@ function AUrl(props) {
 }
 
 
-function WebsiteSection() {
+function ProjectsWrap(param) {
   return e(
-    'section',
+    'div',
     {
-      className: 'wrap-my-project',
+      className: 'all-my-projects-wrap',
     },
-    e('h2', {}, 'Інші сайти:'),
-    e(
-      'ul',
-      {},
-      e(AUrlLi, {name: 'AnimePotik-SPA', type: 'аніме', }),
-      e(AUrlLi, {name: 'AnimePotik-MPA', type: 'аніме', }),
-      e(AUrlLi, {name: 'AnimeHub-SPA', type: 'аніме', }),
-      
-    ),
+    e(SectionProjectsRender),
   );
 }
 
 
-function GameSection() {
-  return e(
-    'section',
-    {
-      className: 'wrap-my-project',
-    },
-    e('h2', {}, 'Ігри:'),
-    e(
-      'ul',
-      {},
-      e(AUrlLi, {name: 'Flappy UFO-DOM'}),
-      e(AUrlLi, {name: 'Dino-DOM'}),
-      
-    ),
-  );
-}
-
-
-function AUrlLi(props) {
+function AUrlLi({title, name, type, status}) {
   return e(
     'li',
     {},
-    e('h3', {}, `${props.name} ${props.theme ? `(${props.theme})` : ''}`),
-    e(AUrl, {name: props.name}),
+    e('h3', {}, title),
+    e(
+      'div',
+      {
+        className: 'labels-wrap',
+      },
+      type ? e(
+        'span',
+        {
+          className: 'type',
+        },
+        type,
+      ) : null,
+      status != 'release' ? e(
+        'span',
+        {
+          className: `status ${status}`,
+        },
+        status,
+      ) : null,
+    ),
+    e(AUrl, {name: name}),
   );
 }
 
@@ -158,10 +208,9 @@ function CopyWrap() {
       className: 'copy-wrap',
     },
     e(Logo, {src: 'img/my-logo/logo.svg', alt: 'Моє лого',}),
-    e('span', {}, '\u00A9 AnimeHub 2026 | v2.0.0-alpha.2 (SPA).',),
+    e('span', {}, '\u00A9 AnimeHub 2026 | v2.0.0-alpha.3 (SPA).',),
     
   );
 }
-//16
 
 

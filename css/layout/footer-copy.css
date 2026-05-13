@@ -15,6 +15,46 @@
     margin: 0.5rem 0;
   }
   
+  .all-my-projects-wrap {
+    height: max-content;
+    
+    .labels-wrap {
+      height: max-content;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      
+      .type,
+      .status {
+        display: inline-block;
+        padding: 0.2rem 1rem;
+        border: var(--border);
+        border-radius: var(--radius);
+        text-transform: uppercase;
+        font-size: 0.7rem;
+      }
+      
+      .type {
+        background: var(--project-type-bg);
+      }
+      
+      .status {
+        &.alpha {
+          color: var(--status-alpha-color);
+          background: var(--status-alpha-bg);
+          border-color: var(--status-alpha-border-color);
+        }
+        &.beta {
+          color: var(--status-beta-color);
+          background: var(--status-beta-bg);
+          border-color: var(--status-beta-border-color);
+        }
+      }
+    }
+  }
+  
+  
   .logo-wrap,
   .my-contacts-wrap,
   .copy-wrap {

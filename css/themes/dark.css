@@ -124,5 +124,16 @@
   
   --theme-img: url(../img/style/dark-theme.svg);
   
+  /*projects*/
+  --project-type-bg: var(--black-850);
+  
+  --status-alpha-color: var(--red-400);
+  --status-alpha-bg: var(--black-850);
+  --status-alpha-border-color: var(--red-400);
+  
+  --status-beta-color: var(--yellow-400);
+  --status-beta-bg: var(--black-850);
+  --status-beta-border-color: var(--yellow-400);
+  
 }
 
