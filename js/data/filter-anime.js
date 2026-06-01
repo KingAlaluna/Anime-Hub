@@ -36,9 +36,6 @@ export const filterGenres = [
   new Filter1('Військові', 38),
   new Filter1('Поліція', 39),
   new Filter1('Психологічні', 40),
-  new Filter1('Еччі', 9),
-  new Filter1('Еротика', 49),
-  new Filter1('Хентай', 12)
 ];
 
 

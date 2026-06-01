@@ -136,7 +136,7 @@ function AUrl(props) {
 }
 
 
-function ProjectsWrap(param) {
+function ProjectsWrap() {
   return e(
     'div',
     {
@@ -208,7 +208,7 @@ function CopyWrap() {
       className: 'copy-wrap',
     },
     e(Logo, {src: 'img/my-logo/logo.svg', alt: 'Моє лого',}),
-    e('span', {}, '\u00A9 AnimeHub 2026 | v2.0.0-alpha.3 (SPA).',),
+    e('span', {}, '\u00A9 AnimeHub 2026 | v2.0.0-alpha.4 (SPA).',),
     
   );
 }
